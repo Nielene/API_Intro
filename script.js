@@ -122,19 +122,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  let subBreedArr = APIResponse.message;
-  console.log("APIResponse.message", subBreedArr);
+  let button = document.querySelector("button");
 
-  Object.keys(subBreedArr).forEach(subBreed => {
-    // console.log("Object.keys(APIResponse.message)", Object.keys(subBreedArr));
-    // console.log("object.values(APIResponse.message)", Object.values(subBreedArr));
+  button.addEventListener("click", event => {
+    let subBreedArr = APIResponse.message;
+    // console.log("APIResponse.message", subBreedArr);
 
-    if (subBreedArr[subBreed].length) {
-      subBreedArr[subBreed].forEach(type => {
-        console.log(type + " " + subBreed);
-      });
-    } else {
-      console.log(subBreed);
-    }
+    Object.keys(subBreedArr).forEach(subBreed => {
+      // console.log("Object.keys(APIResponse.message)", Object.keys(subBreedArr));
+      // console.log("object.values(APIResponse.message)", Object.values(subBreedArr));
+
+      if (subBreedArr[subBreed].length) {
+        subBreedArr[subBreed].forEach(type => {
+          console.log(type + " " + subBreed);
+        });
+      } else {
+        console.log(subBreed);
+      }
+    });
   });
 });
