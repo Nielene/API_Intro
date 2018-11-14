@@ -122,19 +122,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  let subBreedArr = APIResponse.message;
-  console.log("APIResponse.message", subBreedArr);
+  let myObj = {
+    message: {
+      dog: [],
+      cat: ["feral", "house", "tabby"]
+    }
+  };
 
-  Object.keys(subBreedArr).forEach(subBreed => {
-    // console.log("Object.keys(APIResponse.message)", Object.keys(subBreedArr));
-    // console.log("object.values(APIResponse.message)", Object.values(subBreedArr));
+  let data = myObj.message;
+  console.log("myObj.message", data);
 
-    if (subBreedArr[subBreed].length) {
-      subBreedArr[subBreed].forEach(type => {
-        console.log(type + " " + subBreed);
+  Object.keys(data).forEach(animal => {
+    console.log("Object.keys(myObj.message)", Object.keys(data));
+    console.log("object.values(myObj.message)", Object.values(data));
+
+    if (data[animal].length) {
+      data[animal].forEach(type => {
+        console.log(type + " " + animal);
       });
     } else {
-      console.log(subBreed);
+      console.log(animal);
     }
   });
+
+  // let breedList = [];
+  // breedList.push(APIResponse.message.value)
+
+  // let arr = [...APIResponse.message]
+  // console.log(APIResponse.message.value);
+  // console.log(APIResponse.message.sheepdog);
+
+  // loop throug every key, and if the value is a non empty array, i want to push that value and its key into breedlist array.
+
+  // if APIResponse.message.sheepdog.length ===0
+
+  // let arr = [...APIResponse.message]
+  // let arr = Array.from(dogs.message)
+  //
+  // Array(..button).forEach(node => {
+  //   node.addEventListener("click", event => {
+  //     console.log("something");
+  //   })
+  //
+  // });
+  //
+  // let a = {
+  //   id: 2,
+  //   name: "Xavier"
+  // }
+  //
+  // let a = {
+  //   id: 3,
+  //   name: "Ben"
+  // }
+  //
+  // let a = {
+  //   id: 1,
+  //   name: "Maurice"
+  // }
+  //
+  // let b = [1,2,3,4,5]
+  // let s = [33,6,12,7]
+  // let arr = [...b, 200, ...s]
 });
