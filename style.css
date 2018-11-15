@@ -23,11 +23,15 @@ h1 {
   font-size: 40px;
   padding-bottom: 15px;
   color: green;
+  font-stretch: extra-expanded;
 }
 
 button {
   background-color: lightblue;
   border-radius: 10%;
+  border-width: thick;
+  border-color: green;
+  border-style: ridge;
   font-size: 20px;
   font-family: serif;
   font-weight: bold;
