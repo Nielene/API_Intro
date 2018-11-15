@@ -129,6 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+//--------------------------
+
   let data = myObj.message;
   console.log("myObj.message", data);
 
@@ -184,4 +186,103 @@ document.addEventListener("DOMContentLoaded", () => {
   // let b = [1,2,3,4,5]
   // let s = [33,6,12,7]
   // let arr = [...b, 200, ...s]
+
+  //--------------------------------
+
+
+    let breedList = [];
+
+    let breed = APIResponse.message;
+    Object.keys(breed).forEach(subBreed => {
+
+      if (breed[subBreed].length) {
+        breed[subBreed].forEach(type => {
+
+          let first = type[0].toUpperCase()
+          // console.log("firstTop", first);
+          let end = type.slice(1);
+          // console.log("endTop", end);
+
+          let firstSub = subBreed[0].toUpperCase();
+          let endSub = subBreed.slice(1);
+
+
+
+          breedList.push(`${first + end} ${firstSub + endSub}`);
+          // breedList.push(first + end + " " + firstSub + endSub);
+          // breedList.push(type + " " + subBreed)
+
+          // console.log(type + " " + subBreed);
+        });
+      } else {
+        let first = subBreed[0].toUpperCase();
+        let end = subBreed.slice(1)
+        // console.log("first",first, "end:",end)
+        breedList.push(`${first+end}`);
+        // breedList.push(subBreed);
+        // console.log(subBreed);
+      }
+    });
+  // console.log(breedList);
+  // let myArr = [10,20,30,40,50];
+  // let num = Math.random();
+
+  const randomNum = (length) => {
+    return Math.floor(Math.random() *length)
+  }
+
+  const getElement = (arr) => {
+    let index = randomNum(arr.length)
+    return arr[index];
+  }
+
+  // console.log(getElement(breedList));
+
+    let button = document.querySelector("button");
+    button.addEventListener("click", event => {
+  //on click: randomize the list i already created. and push it to p tag
+
+      let body = document.querySelector("body");
+      let p = document.querySelector("p");
+      p.innerText = getElement(breedList);
+      // let form = document.querySelector("form")
+
+      // form.appendChild(p)
+  // console.log(p.innerText, p, event)
+
+      // if (p.innerText){
+        // let newP = document.createElement("p")
+        // p.parentNode.replaceChild(p, newP)
+      // }
+      // else {
+  //       document.appendChild(p);
+  //       // p.innerText = getElement(breedList);
+  //     }
+  // p.innerText = getElement(breedList);
+
+    // return p.innerText;
+      // p.innerText = subBreed;
+      // p.innerText = type + " " + subBreed;
+
+  if (p.innerText) {
+    p.innerText = getElement(breedList)
+  } else {
+    let p = document.createElement("p");
+    document.appendChild(p)
+    p.innerText = getElement(breedList)
+  }
+
+    });
+  });
+
+
+  //-----------------------------------
+
+  // console.log("APIResponse.message", Breed);
+
+  // console.log("Object.keys(APIResponse.message)", Object.keys(Breed));
+  // console.log("object.values(APIResponse.message)", Object.values(Breed));
+
+//----------------------------------
+
 });
