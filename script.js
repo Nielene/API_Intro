@@ -158,32 +158,36 @@ document.addEventListener("DOMContentLoaded", () => {
 // console.log(breedList);
 // let myArr = [10,20,30,40,50];
 // let num = Math.random();
+
 const randomNum = (length) => {
   return Math.floor(Math.random() *length)
 }
+
 const getElement = (arr) => {
   let index = randomNum(arr.length)
   return arr[index];
 }
 
-console.log(getElement(breedList));
+// console.log(getElement(breedList));
 
   let button = document.querySelector("button");
-
   button.addEventListener("click", event => {
 //on click: randomize the list i already created. and push it to p tag
 
-  let body = document.querySelector("body");
-// let p = document.createElement("p");
+    let body = document.querySelector("body");
+    let p = document.createElement("p");
 
-// body.appendChild(p);
+    if (p.innerText){
+      p.parentNode.replaceChild(p, p)
+    } else {
+      body.appendChild(p);
+      p.innerText = getElement(breedList);
+    }
+
+
   // return p.innerText;
     // p.innerText = subBreed;
     // p.innerText = type + " " + subBreed;
-
-
-
-
 
   });
 });
