@@ -175,19 +175,34 @@ const getElement = (arr) => {
 //on click: randomize the list i already created. and push it to p tag
 
     let body = document.querySelector("body");
-    let p = document.createElement("p");
+    let p = document.querySelector("p");
+    p.innerText = getElement(breedList);
+    // let form = document.querySelector("form")
 
-    if (p.innerText){
-      p.parentNode.replaceChild(p, p)
-    } else {
-      body.appendChild(p);
-      p.innerText = getElement(breedList);
-    }
+    // form.appendChild(p)
+// console.log(p.innerText, p, event)
 
+    // if (p.innerText){
+      // let newP = document.createElement("p")
+      // p.parentNode.replaceChild(p, newP)
+    // }
+    // else {
+//       document.appendChild(p);
+//       // p.innerText = getElement(breedList);
+//     }
+// p.innerText = getElement(breedList);
 
   // return p.innerText;
     // p.innerText = subBreed;
     // p.innerText = type + " " + subBreed;
+
+if (p.innerText) {
+  p.innerText = getElement(breedList)
+} else {
+  let p = document.createElement("p");
+  document.appendChild(p)
+  p.innerText = getElement(breedList)
+}
 
   });
 });
